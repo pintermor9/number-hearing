@@ -14,11 +14,11 @@ var checked = false;
 
 const searchParams = new URLSearchParams(window.location.search);
 
-if (searchParams.get("redirectedToUpdated")) {
+if (searchParams.has("redirectedToUpdated")) {
   alert(
     "A weboldal címe megváltozott. Automatikusan át lett irányítva. // The link to this site has changed. You have been redirected."
   );
-  window.location.replace("/");
+  window.location.replace("/number-hearing");
 }
 
 document.addEventListener("keydown", (event) => {
