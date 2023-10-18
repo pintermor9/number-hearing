@@ -12,6 +12,15 @@ var check_button = document.querySelector("button#check");
 
 var checked = false;
 
+const searchParams = new URLSearchParams(window.location.search);
+
+if (searchParams.get("redirectedToUpdated")) {
+  alert(
+    "A weboldal címe megváltozott. Automatikusan át lett irányítva. // The link to this site has changed. You have been redirected."
+  );
+  window.location.replace("/");
+}
+
 document.addEventListener("keydown", (event) => {
   if (event.key == "Enter") {
     if (checked) generate_new();
@@ -119,10 +128,8 @@ function check() {
 
 function tts(text) {
   number_audio = new Audio("https://utils.pintermor9.repl.co/tts?text=" + text);
-  //} catch (e) {
-  //}
 
-  number_audio.addEventListener("error", (ev) => {
+  number_audio.addEventListener("error", () => {
     alert(
       "TTS ENGINE RETURNED AN ERROR:\n" +
         number_audio.error.message +
