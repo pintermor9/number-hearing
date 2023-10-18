@@ -31,14 +31,17 @@ function field_keydown(event) {
     event.preventDefault();
     if (event.target.value != "") {
       event.target.value = "";
+      event.target.classList.remove("text-success");
     } else if (event.target.dataset.index > 0) {
       var field = get_field_by_index(field_index - 1);
       field.value = "";
       field.focus();
+      field.classList.remove("text-success");
     }
   } else if (event.code == "Delete") {
     event.preventDefault();
     event.target.value = "";
+    event.target.classList.remove("text-success");
   } else if (event.code == "ArrowRight") {
     event.preventDefault();
     get_field_by_index(field_index + 1).focus();
@@ -46,8 +49,19 @@ function field_keydown(event) {
     event.preventDefault();
     get_field_by_index(field_index - 1).focus();
   } else if (parseInt(event.key).toString() == event.key) {
-    if (field_index < inputs.children.length - 1 && event.target.value) {
-      get_field_by_index(field_index + 1).focus();
+    event.preventDefault();
+    if (event.target.value == "") {
+      event.target.value = event.key;
+      // focus next if available
+      if (field_index < inputs.children.length - 1)
+        get_field_by_index(field_index + 1).focus();
+    } else if (field_index < inputs.children.length - 1) {
+      get_field_by_index(field_index + 1).value = event.key;
+
+      // focus next if available
+      if (field_index < inputs.children.length - 2)
+        get_field_by_index(field_index + 2).focus();
+      else get_field_by_index(field_index + 1).focus();
     }
   } else if (event.code == "Space") {
     event.preventDefault();
@@ -70,9 +84,6 @@ function generate_new() {
     input_field.hidden = false;
     input_field.firstElementChild.dataset.index = i;
     input_field.firstElementChild.addEventListener("keydown", field_keydown);
-    input_field.firstElementChild.addEventListener("input", (event) => {
-      event.target.classList.remove("text-success");
-    });
     inputs.appendChild(input_field);
   }
 
@@ -108,6 +119,18 @@ function check() {
 
 function tts(text) {
   number_audio = new Audio("https://utils.pintermor9.repl.co/tts?text=" + text);
+  //} catch (e) {
+  //}
+
+  number_audio.addEventListener("error", (ev) => {
+    alert(
+      "TTS ENGINE RETURNED AN ERROR:\n" +
+        number_audio.error.message +
+        "\nTry again."
+    );
+    window.location.reload();
+  });
+
   number_audio.addEventListener("canplaythrough", () => {
     play_button.disabled = false;
     play_button_spinner.hidden = true;
