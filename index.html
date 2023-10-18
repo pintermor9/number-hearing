@@ -15,6 +15,13 @@
   <div class="container">
     <h1 class="mt-5">Zahlen Hören und Schreiben</h1>
 
+    <select hidden data-setting id="display_lang">
+      <option value="de" default>Deutsch</option>
+      <option value="it">Italiano</option>
+      <option value="en">English</option>
+    </select>
+
+
     <div class="form-group">
       <label for="numberInput" class="mt-2">Nummer:</label>
       <div class="field" id="field-example" hidden><input minlength="1" maxlength="1" type="text" autocomplete="off"></div>
@@ -34,15 +41,23 @@
       <summary>Einstellungen</summary>
       <div class="form-group">
         <label for="max_num">Maximum Nummer</label>
-        <input id="max_num" type="number" class="form-control" oninput="MAX_NUM = this.value" value="1000">
+        <input data-setting id="max_num" type="number" class="form-control" value="1000">
+      </div>
+      <div class="form-group">
+        <label for="lang">TTS-Sprache</label>
+        <select data-setting id="lang" class="form-control">
+          <option value="de" default>Deutsch</option>
+          <option value="it">Italiano</option>
+          <option value="en">English</option>
+        </select>
       </div>
       <div class="form-check">
-        <input id="autoplay" type="checkbox" class="form-check-input" onclick="AUTOPLAY = this.checked" checked>
+        <input data-setting id="autoplay" type="checkbox" class="form-check-input" checked>
         <label for="autoplay" class="form-check-label">Automatisch sprechen</label>
       </div>
       <div class="form-check">
-        <input id="PLAY_ON_SPACE" type="checkbox" class="form-check-input" onclick="PLAY_ON_SPACE = this.checked" checked>
-        <label for="PLAY_ON_SPACE" class="form-check-label">Sprechen am SPACE</label>
+        <input data-setting id="play_on_space" type="checkbox" class="form-check-input" checked>
+        <label for="play_on_space" class="form-check-label">Sprechen am SPACE</label>
       </div>
     </details>
   </div>
