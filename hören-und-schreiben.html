@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Zahlen Hören und Schreiben</title>
+
+  <!-- Add Bootstrap CSS link -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script defer src="hören-und-schreiben.js"></script>
+  <style>
+    .field {
+      display: inline;
+    }
+
+    .field input {
+      font-size: 2em;
+      width: 1em;
+      height: 1.5em;
+      text-align: center;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      font-weight: 400;
+      margin: 0.25rem;
+      transition: all 0.15s;
+    }
+
+    .field input:focus {
+      border-color: #80bdff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="mt-5">Zahlen Hören und Schreiben</h1>
+    <div class="form-group">
+      <label for="numberInput" class="mt-2">Nummer:</label>
+      <div class="field" id="field-example" hidden><input minlength="1" maxlength="1" type="text" autocomplete="off"></div>
+      <div class="inputs">
+        <!-- field_example.cloneNode(true); -->
+      </div>
+    </div>
+    <button class="btn btn-primary" id="play" onclick="play()">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Sprechen</button>
+    <button class="btn btn-success" id="check">Überprüfen</button>
+    <button class="btn btn-secondary" onclick="generate_new()">Nächster</button>
+    <p class="mt-3" id="feedback"></p>
+    <details>
+      <summary>Einstellungen</summary>
+      <div class="form-group">
+        <label for="max_num">Maximum Nummer</label>
+        <input id="max_num" type="number" class="form-control" oninput="MAX_NUM = this.value" value="1000">
+      </div>
+      <div class="form-check">
+        <input id="autoplay" type="checkbox" class="form-check-input" onclick="AUTOPLAY = this.checked" checked>
+        <label for="autoplay" class="form-check-label">Automatisch sprechen</label>
+      </div>
+      <div class="form-check">
+        <input id="PLAY_ON_SPACE" type="checkbox" class="form-check-input" onclick="PLAY_ON_SPACE = this.checked" checked>
+        <label for="PLAY_ON_SPACE" class="form-check-label">Sprechen am SPACE</label>
+      </div>
+    </details>
+  </div>
+</body>
+
+</html>
