@@ -5,6 +5,7 @@ const inputs = document.querySelector(".inputs");
 const feedback = document.querySelector("#feedback");
 const check_button = document.querySelector("#check");
 const settings_elements = document.querySelectorAll("[data-setting]");
+const speed_feedback = document.querySelector("#speed-feedback");
 
 var number;
 var number_audio;
@@ -29,7 +30,7 @@ if (settings == null) {
   readSettings();
 } else {
   settings_elements.forEach((element) => {
-    if (element.type == "number") {
+    if (["number", "range"].includes(element.type)) {
       element.value = settings[element.id];
     } else if (element.type == "select-one") {
       element.value = settings[element.id];
@@ -38,11 +39,12 @@ if (settings == null) {
     }
   });
 }
+speed_feedback.innerHTML = settings.speed.toString() + "%";
 
 function readSettings() {
   var old = JSON.parse(JSON.stringify(settings));
   settings_elements.forEach((element) => {
-    if (element.type == "number") {
+    if (["number", "range"].includes(element.type)) {
       settings[element.id] = parseInt(element.value);
     } else if (element.type == "select-one") {
       settings[element.id] = element.value;
@@ -54,6 +56,10 @@ function readSettings() {
 
   if (old.display_lang != settings.display_lang) reloadDisplayLanguage();
   if (old.lang != settings.lang) generate_new();
+  if (old.speed != settings.speed) {
+    speed_feedback.innerHTML = settings.speed.toString() + "%";
+    number_audio.playbackRate = settings.speed / 100;
+  }
 }
 
 function reloadDisplayLanguage() {
@@ -64,7 +70,7 @@ function reloadDisplayLanguage() {
       var languages = JSON.parse(req.responseText);
       var lang = languages[settings.display_lang];
       document.querySelectorAll("[data-l]").forEach((element) => {
-        element.innerText = lang[element.dataset.l];
+        element.innerHTML = lang[element.dataset.l] || element.innerHTML;
       });
     }
   });
