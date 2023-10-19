@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Zahlen Hören und Schreiben</title>
+  <title data-l="title">Zahlen Hören und Schreiben</title>
 
   <!-- Add Bootstrap CSS link -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -13,28 +13,30 @@
 
 <body>
   <div class="container">
-    <h1 class="mt-5">Zahlen Hören und Schreiben</h1>
+    <nav class="mt-5">
+      <h1 data-l="title">Zahlen Hören und Schreiben</h1>
 
-    <select hidden data-setting id="display_lang">
-      <option value="de" default>Deutsch</option>
-      <option value="it">Italiano</option>
-      <option value="en">English</option>
-    </select>
+      <select data-setting id="display_lang" class="btn btn-light mt-2">
+        <option value="de" default>Deutsch</option>
+        <option value="it" hidden>Italiano</option>
+        <option value="en">English</option>
+      </select>
+    </nav>
 
 
     <div class="form-group">
-      <label for="numberInput" class="mt-2">Nummer:</label>
+      <label for="numberInput" class="mt-2" data-l="label-number">Nummer:</label>
       <div class="field" id="field-example" hidden><input minlength="1" maxlength="1" type="text" autocomplete="off"></div>
       <div class="inputs">
         <!-- field_example.cloneNode(true); -->
       </div>
     </div>
 
-    <button class="btn btn-primary" id="play" onclick="play()">
+    <button data-l="button-speak" class="btn btn-primary" id="play" onclick="play()">
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
       Sprechen</button>
-    <button class="btn btn-success" id="check">Überprüfen</button>
-    <button class="btn btn-secondary" onclick="generate_new()">Nächster</button>
+    <button data-l="button-check" class="btn btn-success" id="check">Überprüfen</button>
+    <button data-l="button-next" class="btn btn-secondary" onclick="generate_new()">Nächster</button>
     <p class="mt-3" id="feedback"></p>
 
     <details>

@@ -60,8 +60,12 @@ function reloadDisplayLanguage() {
   var req = new XMLHttpRequest();
   req.open("get", "languages.json", false);
   req.addEventListener("readystatechange", (event) => {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      // TODO
+    if (req.readyState === XMLHttpRequest.DONE && req.status === 200) {
+      var languages = JSON.parse(req.responseText);
+      var lang = languages[settings.display_lang];
+      document.querySelectorAll("[data-l]").forEach((element) => {
+        element.innerText = lang[element.dataset.l];
+      });
     }
   });
   req.send();
@@ -210,3 +214,4 @@ function play() {
 }
 
 generate_new();
+reloadDisplayLanguage();

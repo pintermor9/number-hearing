@@ -1,0 +1,16 @@
+{
+    "de": {
+        "title": "Zahlen Hören und Schreiben",
+        "label-number": "Nummer:",
+        "button-speak": "Sprechen",
+        "button-check": "Überprüfen",
+        "button-next": "Nächster"
+    },
+    "en": {
+        "title": "Number Hearing and Writing",
+        "label-number": "Number:",
+        "button-speak": "Speak",
+        "button-check": "Check",
+        "button-next": "Next"
+    }
+}

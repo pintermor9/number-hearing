@@ -20,5 +20,11 @@
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-#display_lang {
+nav * {
+  display: inline;
+}
+
+nav select {
+  float: right;
+  vertical-align: bottom;
 }
