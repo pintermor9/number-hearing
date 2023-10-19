@@ -1,16 +1,38 @@
 {
     "de": {
         "title": "Zahlen Hören und Schreiben",
-        "label-number": "Nummer:",
+        "label-number": "Nummer",
         "button-speak": "Sprechen",
         "button-check": "Überprüfen",
-        "button-next": "Nächster"
+        "button-next": "Nächste",
+        "settings": "Einstellungen",
+        "s-max": "Maximale Anzahl",
+        "s-ttslang": "Text-to-Speech-Sprache",
+        "s-autoplay": "Automatisches Abspielen",
+        "s-playonspace": "Spielen auf SPACE"
     },
     "en": {
         "title": "Number Hearing and Writing",
-        "label-number": "Number:",
-        "button-speak": "Speak",
+        "label-number": "Number",
+        "button-speak": "Play",
         "button-check": "Check",
-        "button-next": "Next"
+        "button-next": "Next",
+        "settings": "Settings",
+        "s-max": "Maximum Number",
+        "s-ttslang": "Text to Speech Language",
+        "s-autoplay": "Autoplay",
+        "s-playonspace": "Play on SPACE"
+    },
+    "it": {
+        "title": "Udito e scrittura dei numeri",
+        "label-number": "Numero",
+        "button-speak": "Parlare",
+        "button-check": "Controllo",
+        "button-next": "Prossimo",
+        "settings": "Impostazioni",
+        "s-max": "Numero massimo",
+        "s-ttslang": "Linguaggio da testo a voce",
+        "s-autoplay": "Riproduzione automatica",
+        "s-playonspace": "Gioca sullo SPAZIO"
     }
 }
