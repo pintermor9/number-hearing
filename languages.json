@@ -37,5 +37,18 @@
         "s-ttslang": "Linguaggio da testo a voce",
         "s-autoplay": "Riproduzione automatica",
         "s-playonspace": "Gioca sullo SPAZIO"
+    },
+    "hu": {
+        "title": "Szám hallás utáni értése",
+        "label-number": "Szám",
+        "button-speak": "Lejátszás",
+        "button-check": "Ellenőrzés",
+        "button-next": "Kövezkező",
+        "settings": "Beállítások",
+        "s-max": "Számkör",
+        "s-speed": "Sebesség",
+        "s-ttslang": "Szöveg felolvasó nyelve",
+        "s-autoplay": "Automatikus lejátszás",
+        "s-playonspace": "Lejátszás a SPACE megnyomására"
     }
 }
