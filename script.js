@@ -226,3 +226,4 @@ function play() {
 
 generate_new();
 reloadDisplayLanguage();
+document.body.style.display = "block";
