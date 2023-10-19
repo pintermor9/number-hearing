@@ -17,9 +17,9 @@ const searchParams = new URLSearchParams(window.location.search);
 // this is temporary
 if (searchParams.has("redirectedToUpdated")) {
   alert(
-    "A weboldal címe megváltozott. Automatikusan át lett irányítva. // The link to this site has changed. You have been redirected."
+    "A weboldal címe megváltozott. Automatikusan át lett irányítva. \nThe link to this site has changed. You have been redirected.\nDer Link zu dieser Seite hat sich geändert. Sie wurden umgeleitet.\nIl collegamento a questo sito è cambiato. Sei stato reindirizzato."
   );
-  window.location.replace("/number-hearing");
+  window.location.replace("/number-hearing?lang=de");
 }
 
 // ANCHOR - settings
@@ -40,6 +40,11 @@ if (settings == null) {
   });
 }
 speed_feedback.innerHTML = settings.speed.toString() + "%";
+// this overrides everything and sets settings.display_lang to ?lang=
+if (searchParams.has("lang")) {
+  document.querySelector("[data-setting]#display_lang").value =
+    settings.display_lang = searchParams.get("lang");
+}
 
 function readSettings() {
   var old = JSON.parse(JSON.stringify(settings));
