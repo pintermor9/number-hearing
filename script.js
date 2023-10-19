@@ -204,6 +204,8 @@ function tts(text) {
 
   number_audio = new Audio(audio_url);
 
+  number_audio.playbackRate = settings.speed / 100;
+
   number_audio.addEventListener("error", () => {
     alert(
       "TTS ENGINE RETURNED AN ERROR:\n" +
