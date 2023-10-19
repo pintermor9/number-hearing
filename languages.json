@@ -10,7 +10,8 @@
         "s-speed": "Tempo",
         "s-ttslang": "Text-to-Speech-Sprache",
         "s-autoplay": "Automatisches Abspielen",
-        "s-playonspace": "Spielen auf SPACE"
+        "s-playonspace": "Spielen auf SPACE",
+        "reset": "zurücksetzen"
     },
     "en": {
         "title": "Number Hearing and Writing",
@@ -23,7 +24,8 @@
         "s-speed": "Speed",
         "s-ttslang": "Text to Speech Language",
         "s-autoplay": "Autoplay",
-        "s-playonspace": "Play on SPACE"
+        "s-playonspace": "Play on SPACE",
+        "reset": "reset"
     },
     "it": {
         "title": "Udito e scrittura dei numeri",
@@ -36,7 +38,8 @@
         "s-speed": "Velocità",
         "s-ttslang": "Linguaggio da testo a voce",
         "s-autoplay": "Riproduzione automatica",
-        "s-playonspace": "Gioca sullo SPAZIO"
+        "s-playonspace": "Gioca sullo SPAZIO",
+        "reset": "ripristina"
     },
     "hu": {
         "title": "Szám hallás utáni értése",
@@ -49,6 +52,7 @@
         "s-speed": "Sebesség",
         "s-ttslang": "Szöveg felolvasó nyelve",
         "s-autoplay": "Automatikus lejátszás",
-        "s-playonspace": "Lejátszás a SPACE megnyomására"
+        "s-playonspace": "Lejátszás a SPACE megnyomására",
+        "reset": "visszaállítás"
     }
 }
