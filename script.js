@@ -1,3 +1,5 @@
+const SETTINGS_VERSION = 1;
+
 const play_button = document.querySelector("#play");
 const play_button_spinner = document.querySelector("#play>span.spinner-border");
 const field_example = document.querySelector("#field-example");
@@ -29,6 +31,18 @@ if (settings == null) {
   settings = {};
   readSettings();
 } else {
+  if (
+    settings.SETTINGS_VERSION == undefined ||
+    settings.SETTINGS_VERSION < SETTINGS_VERSION
+  ) {
+    // update to new versions
+    var old = JSON.parse(JSON.stringify(settings));
+    settings = {};
+    readSettings();
+    Object.entries(old).forEach((i) => {
+      settings[i] = old[i];
+    });
+  }
   settings_elements.forEach((element) => {
     if (["number", "range"].includes(element.type)) {
       element.value = settings[element.id];
