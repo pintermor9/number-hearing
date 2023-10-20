@@ -42,6 +42,8 @@ if (settings == null) {
     Object.entries(old).forEach((i) => {
       settings[i[0]] = i[1];
     });
+    settings.SETTINGS_VERSION = SETTINGS_VERSION;
+    localStorage.setItem("settings", JSON.stringify(settings));
   }
   settings_elements.forEach((element) => {
     if (["number", "range"].includes(element.type)) {
