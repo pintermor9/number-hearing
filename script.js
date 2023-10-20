@@ -105,6 +105,7 @@ function get_field_by_index(i) {
 }
 
 function field_keydown(event) {
+  if (window.navigator.userAgentData.mobile) field_keydown_mobile(event);
   var field_index = parseInt(event.target.dataset.index);
   if (event.code == "Backspace") {
     event.preventDefault();
@@ -147,6 +148,30 @@ function field_keydown(event) {
     if (settings.play_on_space) play();
   } else {
     event.preventDefault();
+  }
+}
+
+function field_keydown_mobile(event) {
+  var field_index = parseInt(event.target.dataset.index);
+  if (event.keyCode == 8) {
+    event.preventDefault();
+    if (event.target.value != "") {
+      event.target.value = "";
+      event.target.classList.remove("text-success");
+    } else if (event.target.dataset.index > 0) {
+      var field = get_field_by_index(field_index - 1);
+      field.value = "";
+      field.focus();
+      field.classList.remove("text-success");
+    }
+  } else {
+    function oninput(_) {
+      // focus next if available
+      if (field_index < inputs.children.length - 1)
+        get_field_by_index(field_index + 1).focus();
+      event.target.removeEventListener("input", oninput);
+    }
+    event.target.addEventListener("input", oninput);
   }
 }
 
