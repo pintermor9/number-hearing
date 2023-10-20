@@ -40,7 +40,7 @@ if (settings == null) {
     settings = {};
     readSettings();
     Object.entries(old).forEach((i) => {
-      settings[i] = old[i];
+      settings[i[0]] = i[1];
     });
   }
   settings_elements.forEach((element) => {
