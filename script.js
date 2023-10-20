@@ -252,6 +252,13 @@ function tts(text) {
 }
 
 function play() {
+  for (let i = 0; i < inputs.children.length; i++) {
+    let field = get_field_by_index(i);
+    if (field.value == "") {
+      field.focus();
+      break;
+    }
+  }
   number_audio.play();
 }
 
