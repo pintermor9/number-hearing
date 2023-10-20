@@ -74,7 +74,7 @@ function readSettings() {
   localStorage.setItem("settings", JSON.stringify(settings));
 
   if (old.display_lang != settings.display_lang) reloadDisplayLanguage();
-  if (old.lang != settings.lang) generate_new();
+  if (old.lang != settings.lang) create_audio();
   if (old.speed != settings.speed) {
     speed_feedback.innerHTML = settings.speed.toString() + "%";
     number_audio.playbackRate = settings.speed / 100;
@@ -209,9 +209,7 @@ function generate_new() {
 
   checked_input = false;
   check_button.disabled = false;
-  play_button.disabled = true;
-  play_button_spinner.hidden = false;
-  tts(number);
+  create_audio();
 }
 
 function check() {
@@ -233,6 +231,12 @@ function check() {
     checked_input = true;
     check_button.disabled = true;
   }
+}
+
+function create_audio() {
+  play_button.disabled = true;
+  play_button_spinner.hidden = false;
+  tts(number);
 }
 
 function tts(text) {
