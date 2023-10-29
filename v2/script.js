@@ -207,7 +207,7 @@ function generate_new() {
     inputs.appendChild(input_field);
   }
 
-  inputs.focus();
+  inputs.firstElementChild.focus();
 
   checked_input = false;
   check_button.disabled = false;
